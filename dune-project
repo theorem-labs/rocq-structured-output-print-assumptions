@@ -21,4 +21,4 @@
   (ocaml (>= 4.14))
   (dune :build)
   (ppx_optcomp :build)
-  (coq-core (or (>= 9.0) (= dev)))))
+  (rocq-core (or (>= 9.0) (= dev)))))
