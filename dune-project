@@ -22,4 +22,5 @@
   (dune :build)
   (ppx_optcomp :build)
   (rocq-core (or (>= 9.0) (= dev)))
-  (rocq-stdlib (and :with-test (or (>= 9.0) (= dev))))))
+  (coq-core (or (>= 9.0) (= dev)))
+  (rocq-stdlib :with-test)))
