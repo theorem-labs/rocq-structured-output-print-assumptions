@@ -1,0 +1,5 @@
+(coq.theory
+ (name PrintAssumptionsJSON)
+ (package rocq-print-assumptions-json)
+ (plugins rocq-print-assumptions-json.plugin)
+ (theories Stdlib))

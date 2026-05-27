@@ -1,0 +1,50 @@
+DECLARE PLUGIN "rocq-print-assumptions-json.plugin"
+
+{
+
+open Ltac_plugin
+open Stdarg
+open Procq.Prim
+open Print_assumptions_json
+
+}
+
+VERNAC COMMAND EXTEND PrintAssumptionsJSON CLASSIFIED AS QUERY STATE opaque_access
+
+| [ "Print" "Assumptions" "JSON" ne_smart_global_list(rs) ] ->
+  { print_structured Assumptions Compact rs }
+
+| [ "Print" "Assumptions" "JSON" "Pretty" ne_smart_global_list(rs) ] ->
+  { print_structured Assumptions Pretty rs }
+
+| [ "Print" "Assumptions" "JSONL" ne_smart_global_list(rs) ] ->
+  { print_structured Assumptions Jsonl rs }
+
+| [ "Print" "Opaque" "Dependencies" "JSON" ne_smart_global_list(rs) ] ->
+  { print_structured OpaqueOnly Compact rs }
+
+| [ "Print" "Opaque" "Dependencies" "JSON" "Pretty" ne_smart_global_list(rs) ] ->
+  { print_structured OpaqueOnly Pretty rs }
+
+| [ "Print" "Opaque" "Dependencies" "JSONL" ne_smart_global_list(rs) ] ->
+  { print_structured OpaqueOnly Jsonl rs }
+
+| [ "Print" "Transparent" "Dependencies" "JSON" ne_smart_global_list(rs) ] ->
+  { print_structured Transparent Compact rs }
+
+| [ "Print" "Transparent" "Dependencies" "JSON" "Pretty" ne_smart_global_list(rs) ] ->
+  { print_structured Transparent Pretty rs }
+
+| [ "Print" "Transparent" "Dependencies" "JSONL" ne_smart_global_list(rs) ] ->
+  { print_structured Transparent Jsonl rs }
+
+| [ "Print" "All" "Dependencies" "JSON" ne_smart_global_list(rs) ] ->
+  { print_structured AllDeps Compact rs }
+
+| [ "Print" "All" "Dependencies" "JSON" "Pretty" ne_smart_global_list(rs) ] ->
+  { print_structured AllDeps Pretty rs }
+
+| [ "Print" "All" "Dependencies" "JSONL" ne_smart_global_list(rs) ] ->
+  { print_structured AllDeps Jsonl rs }
+
+END

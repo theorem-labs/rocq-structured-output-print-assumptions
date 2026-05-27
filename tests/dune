@@ -1,0 +1,4 @@
+(coq.theory
+ (name PrintAssumptionsJSON_Tests)
+ (theories PrintAssumptionsJSON)
+ (plugins rocq-print-assumptions-json.plugin))
