@@ -37,6 +37,7 @@ let constant_name kn =
 let mutind_name m =
   gr_name (GlobRef.IndRef (m, 0))
 
+[%%if coq >= "9.3"]
 let axiom_kind_and_name (ax : Printer.axiom) =
   match ax with
   | Constant kn -> ("axiom", constant_name kn)
@@ -45,6 +46,15 @@ let axiom_kind_and_name (ax : Printer.axiom) =
   | TypeInType gr -> ("type_in_type", gr_name gr)
   | UIP m -> ("uip", mutind_name m)
   | IndicesNotMattering m -> ("indices_not_mattering", mutind_name m)
+[%%else]
+let axiom_kind_and_name (ax : Printer.axiom) =
+  match ax with
+  | Constant kn -> ("axiom", constant_name kn)
+  | Positive m -> ("positive", mutind_name m)
+  | Guarded gr -> ("guarded", gr_name gr)
+  | TypeInType gr -> ("type_in_type", gr_name gr)
+  | UIP m -> ("uip", mutind_name m)
+[%%endif]
 
 let type_to_string env sigma typ =
   pp_to_string (Printer.pr_ltype_env env sigma typ)
@@ -90,7 +100,7 @@ let collect_assumptions ~opaque_access mode env grs =
     | Transparent  -> (false, true)
     | AllDeps      -> (true, true)
   in
-  Assumptions.assumptions opaque_access st ~add_opaque ~add_transparent grs
+  Compat.assumptions ~opaque_access st ~add_opaque ~add_transparent grs
 
 let format_compact env sigma grs_names map =
   let assumptions = Printer.ContextObjectMap.fold (fun obj typ acc ->
