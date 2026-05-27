@@ -1,4 +1,13 @@
-(coq.theory
- (name PrintAssumptionsJSON_Tests)
- (theories PrintAssumptionsJSON)
- (plugins rocq-print-assumptions-json.plugin))
+(rule
+ (deps
+  (:v Tests.v)
+  (package rocq-print-assumptions-json))
+ (targets Tests.out)
+ (action
+  (with-stdout-to %{targets}
+   (bash "INSTALL=$(cd ../../install/default/lib && pwd) && OCAMLPATH=$INSTALL:$OCAMLPATH rocq c -noglob -Q $INSTALL/coq/user-contrib/PrintAssumptionsJSON PrintAssumptionsJSON %{v}"))))
+
+(rule
+ (alias runtest)
+ (package rocq-print-assumptions-json)
+ (action (diff Tests.expected Tests.out)))

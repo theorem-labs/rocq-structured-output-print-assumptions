@@ -1,0 +1,131 @@
+{"terms":["foo"],"assumptions":[]}
+{
+  "terms": ["foo"],
+  "assumptions": []
+}
+
+{"terms":["bar"],"assumptions":[{"name":"my_axiom","kind":"axiom","type":"nat"}]}
+{
+  "terms": ["bar"],
+  "assumptions": [
+    {
+      "name": "my_axiom",
+      "kind": "axiom",
+      "type": "nat"
+    }
+  ]
+}
+{"name":"my_axiom","kind":"axiom","type":"nat"}
+
+{"terms":["baz"],"assumptions":[{"name":"ax1","kind":"axiom","type":"nat"},{"name":"ax2","kind":"axiom","type":"nat -> nat"},{"name":"my_axiom","kind":"axiom","type":"nat"}]}
+{
+  "terms": ["baz"],
+  "assumptions": [
+    {
+      "name": "ax1",
+      "kind": "axiom",
+      "type": "nat"
+    },
+    {
+      "name": "ax2",
+      "kind": "axiom",
+      "type": "nat -> nat"
+    },
+    {
+      "name": "my_axiom",
+      "kind": "axiom",
+      "type": "nat"
+    }
+  ]
+}
+{"name":"ax1","kind":"axiom","type":"nat"}
+{"name":"ax2","kind":"axiom","type":"nat -> nat"}
+{"name":"my_axiom","kind":"axiom","type":"nat"}
+
+{"terms":["uses_opaque"],"assumptions":[{"name":"opaque_lemma","kind":"opaque","type":"forall n : nat, n + 0 = n"}]}
+{
+  "terms": ["uses_opaque"],
+  "assumptions": [
+    {
+      "name": "opaque_lemma",
+      "kind": "opaque",
+      "type": "forall n : nat, n + 0 = n"
+    }
+  ]
+}
+{"terms":["bar"],"assumptions":[{"name":"my_axiom","kind":"axiom","type":"nat"},{"name":"Nat.add","kind":"transparent","type":"nat -> nat -> nat"},{"name":"bar","kind":"transparent","type":"nat"}]}
+{
+  "terms": ["bar"],
+  "assumptions": [
+    {
+      "name": "my_axiom",
+      "kind": "axiom",
+      "type": "nat"
+    },
+    {
+      "name": "Nat.add",
+      "kind": "transparent",
+      "type": "nat -> nat -> nat"
+    },
+    {
+      "name": "bar",
+      "kind": "transparent",
+      "type": "nat"
+    }
+  ]
+}
+{"name":"my_axiom","kind":"axiom","type":"nat"}
+{"name":"Nat.add","kind":"transparent","type":"nat -> nat -> nat"}
+{"name":"bar","kind":"transparent","type":"nat"}
+
+{"terms":["bar"],"assumptions":[{"name":"my_axiom","kind":"axiom","type":"nat"},{"name":"Nat.add","kind":"transparent","type":"nat -> nat -> nat"},{"name":"bar","kind":"transparent","type":"nat"}]}
+{
+  "terms": ["bar"],
+  "assumptions": [
+    {
+      "name": "my_axiom",
+      "kind": "axiom",
+      "type": "nat"
+    },
+    {
+      "name": "Nat.add",
+      "kind": "transparent",
+      "type": "nat -> nat -> nat"
+    },
+    {
+      "name": "bar",
+      "kind": "transparent",
+      "type": "nat"
+    }
+  ]
+}
+{"name":"my_axiom","kind":"axiom","type":"nat"}
+{"name":"Nat.add","kind":"transparent","type":"nat -> nat -> nat"}
+{"name":"bar","kind":"transparent","type":"nat"}
+
+{"terms":["foo","bar"],"assumptions":[{"name":"my_axiom","kind":"axiom","type":"nat"}]}
+{
+  "terms": ["foo", "bar"],
+  "assumptions": [
+    {
+      "name": "my_axiom",
+      "kind": "axiom",
+      "type": "nat"
+    }
+  ]
+}
+{"name":"my_axiom","kind":"axiom","type":"nat"}
+
+{"terms":["sec_def"],"assumptions":[{"name":"x","kind":"variable","type":"nat"}]}
+{
+  "terms": ["sec_def"],
+  "assumptions": [
+    {
+      "name": "x",
+      "kind": "variable",
+      "type": "nat"
+    }
+  ]
+}
+{"name":"x","kind":"variable","type":"nat"}
+

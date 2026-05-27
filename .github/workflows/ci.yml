@@ -31,14 +31,6 @@ jobs:
             startGroup "Print opam config"
               opam config list; opam repo list; opam list
             endGroup
-          script: |
-            startGroup "Build"
-              opam exec -- dune build
-            endGroup
-            startGroup "Install"
-              opam exec -- dune install
-            endGroup
-          uninstall: ''
 
   check-all:
     runs-on: ubuntu-latest
